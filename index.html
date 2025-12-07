@@ -37,7 +37,7 @@
   <section class="featured-categories">
     <h3>Featured Categories</h3>
     <div class="category-list">
-      <input type="text" v-model="searchQuery" @change="search" placeholder="Search..." class="category-btn"/>
+      <input type="text" v-model="searchQuery" @input="search" placeholder="Search..." class="category-btn"/>
 
       <select name="sortOrder" v-model="sortOrder" @change="sort" class="category-btn" id="">
         <option value="asc">Ascending</option>
