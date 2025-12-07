@@ -1,5 +1,5 @@
 Lesson App Frontend
-
-Description: Interface to browse lessons, add to cart, and checkout.
-Tech: HTML, CSS, JavaScript, Fetch API
-Backend connection: https://lesson-app-backend-pbex.onrender.com
+Description: Vue.js interface to browse lessons, add them to a cart, and checkout. 
+Tech : Vue.js, HTML, CSS, JavScript, Fetch API
+GitHub Repo: https://github.com/Zoz0chan/lesson-app-frontend
+Live App(GitHub Pages): 
