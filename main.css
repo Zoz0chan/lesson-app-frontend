@@ -33,3 +33,55 @@ h1, h2, h3, h4 {
   font-weight: 600;
   margin-bottom: var(--spacing-sm);
 }
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+/* ===== LAYOUT CONTAINERS ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section {
+  padding: var(--spacing-xl) 0;
+}
+
+/* ===== NAVIGATION BAR ===== */
+.top-nav {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow);
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+.nav-links {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.nav-links a,
+.nav-links button {
+  text-decoration: none;
+  font-weight: 500;
+}
+/* ===== BUTTONS ===== */
+.btn-primary,
+.btn-secondary {
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
