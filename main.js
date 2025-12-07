@@ -58,6 +58,7 @@ let app = new Vue({
     }
   },
  mounted() {
+  // Fetch lessons from backend
   fetch("https://lesson-app-backend-pbex.onrender.com/lessons")
     .then(response => response.json())
     .then(data => {
@@ -65,5 +66,10 @@ let app = new Vue({
       this.fullLessons = data;
     })
     .catch(err => console.error(err));
-}
+
+  // Restore cart if exists
+  if (sessionStorage.getItem("cart")) {
+    this.cart = JSON.parse(sessionStorage.getItem("cart"));
+  }
+ }
 });
