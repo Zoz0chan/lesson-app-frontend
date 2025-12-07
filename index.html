@@ -26,4 +26,71 @@
     <div class="hero-content">
       <h2>Boost Your Skills.<br>Anytime, Anywhere.</h2>
       <p>Explore our wide range of courses</p>
-      
+      <div class="hero-buttons">
+        <button class="btn-primary">Browse Courses</button>
+        <button class="btn-secondary">Sign Up</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Categories Section -->
+  <section class="featured-categories">
+    <h3>Featured Categories</h3>
+    <div class="category-list">
+      <input type="text" v-model="searchQuery" @change="search" placeholder="Search..." class="category-btn"/>
+
+      <select name="sortOrder" v-model="sortOrder" @change="sort" class="category-btn" id="">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+      </select>
+
+      <select name="sortAttribute" v-model="sortAttribute" @change="sort" class="category-btn" id="">
+        <option value="name">Name</option>
+        <option value="location">Location</option>
+        <option value="space">Space</option>
+      </select>
+      </div>
+  </section>
+
+      <!-- Top-Selling Courses Section -->
+  <section class="top-courses">
+    <h3>Top-Selling Courses</h3>
+    <div class="course-card" v-for="lesson in lessons" :key="lesson.id">
+      <div class="course-image">
+      <img src="https://lesson-app-backend-pbex.onrender.com/images/image.png" alt=""  srcset="">
+      </div>
+      <div class="course-details">
+        <h4>{{lesson.subject}}</h4>
+        <p>{{lesson.location}}</p>
+        <p>{{lesson.spaces}} spaces left</p>
+        <div class="price">${{lesson.price}}</div>
+
+        <button @click="addtoCart(lesson)" class="btn-primary">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+<!-- Testimonials Section -->
+  <section class="testimonials">
+    <h3>Testimonials</h3>
+    <div class="testimonial-card">
+      <div class="avatar">
+        <svg width="50" height="50" viewBox="0 0 50 50">
+          <circle cx="25" cy="25" r="24" fill="#a8d8ea"/>
+          <circle cx="25" cy="20" r="8" fill="#2c4a5e"/>
+          <path d="M15,30 Q25,40 35,30" stroke="#2c4a5e" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <div class="testimonial-text">
+        <p>_____________________________</p>
+        <p>_______________________</p>
+        <p>___________</p>
+      </div>
+      </div>
+  </section>
+</div>
+
+<!-- Vue 2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>
