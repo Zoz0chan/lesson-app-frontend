@@ -20,3 +20,46 @@
       </nav>
        </div>
   </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <h2>Browse All Courses</h2>
+    <p>Find the perfect course for your learning journey</p>
+  </section>
+
+  <!-- Category Filter -->
+  <section class="category-filter">
+    <h3>Filter by Category</h3>
+    <div class="category-list">
+      <button 
+        v-for="category in categories" 
+        :key="category" 
+        @click="activeCategory = category"
+        :class="{ 'active': activeCategory === category }"
+        class="category-btn"
+        >
+        {{ category }}
+      </button>
+    </div>
+  </section>
+  <!-- Course List -->
+  <section class="course-list-section">
+    <div class="course-grid">
+      <div 
+        v-for="course in filteredCourses" 
+        :key="course.id" 
+        class="course-card"
+      >
+        <div class="course-image">
+          <svg width="100%" height="100%" viewBox="0 0 100 100">
+            <rect width="100" height="100" fill="#f9d7a6" rx="8"/>
+            <polygon points="30,40 70,50 30,60" fill="#2c4a5e"/>
+          </svg>
+        </div>
+        <div class = "course-details">
+          <h4>{{ course.title }}</h4>
+          <p>{{ course.description }}</p>
+          <div class="price">${{ course.price }}</div>
+          <div class="rating">
+            <span>★★★★★</span> {{ course.rating }}
+          </div>
