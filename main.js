@@ -44,7 +44,7 @@ let app = new Vue({
         let comparison = 0;
         // Handle string comparisons (topic/name and location)
         if(attribute === 'name' || attribute === 'topic'){
-          comparison = a.subject.localeCompare(b.topic);
+  comparison = a.subject.localeCompare(b.subject);
         } else if(attribute === 'location'){
           comparison = a.location.localeCompare(b.location);
         } 
@@ -57,13 +57,13 @@ let app = new Vue({
       });
     }
   },
-  beforeMount: function(){
-    fetch("https://lesson-app-backend-pbex.onrender.com/lessons")
-      .then(response => response.json())
-      .then(data => {
-        this.lessons = data;
-        this.fullLessons = data;
-      });
-  },
-  mounted: function(){}
+ mounted() {
+  fetch("https://lesson-app-backend-pbex.onrender.com/lessons")
+    .then(response => response.json())
+    .then(data => {
+      this.lessons = data;
+      this.fullLessons = data;
+    })
+    .catch(err => console.error(err));
+}
 });
