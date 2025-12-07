@@ -36,3 +36,34 @@ let app = new Vue({
         this.lessons = this.fullLessons;
       }
     },
+     sort(){
+      const order = this.sortOrder;
+      const attribute = this.sortAttribute;
+      
+      this.lessons.sort((a, b) => {
+        let comparison = 0;
+        // Handle string comparisons (topic/name and location)
+        if(attribute === 'name' || attribute === 'topic'){
+          comparison = a.subject.localeCompare(b.topic);
+        } else if(attribute === 'location'){
+          comparison = a.location.localeCompare(b.location);
+        } 
+        // Handle numeric comparisons (space and price)
+        else if(attribute === 'space' || attribute === 'price'){
+          comparison = a[attribute] - b[attribute];
+        }
+        // Reverse for descending order
+        return order === 'desc' ? -comparison : comparison;
+      });
+    }
+  },
+  beforeMount: function(){
+    fetch("https://lesson-app-backend-pbex.onrender.com/lessons")
+      .then(response => response.json())
+      .then(data => {
+        this.lessons = data;
+        this.fullLessons = data;
+      });
+  },
+  mounted: function(){}
+});
